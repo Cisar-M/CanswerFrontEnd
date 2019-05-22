@@ -1,5 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Inject, LOCALE_ID } from '@angular/core';
 import {CalendarComponent} from 'ionic2-calendar/calendar';
+import { AlertController } from '@ionic/angular';
+import { formatDate } from '@angular/common';
 
 
 @Component({
@@ -29,7 +31,7 @@ export class CalnedarPage implements OnInit {
  
   @ViewChild(CalendarComponent) myCal:CalendarComponent; 
 
-  constructor() { }
+  constructor(private alertCtrl: AlertController, @Inject(LOCALE_ID)private locale: string) { }
 
   ngOnInit() {
     this.resetEvent();
@@ -74,13 +76,31 @@ next(){
   swiper.slideNext();
 
 }
-onEventSelected(){
-   
+today(){
+  this.calendar.currentDate = new Date();
 }
-onViewTitileChanged(){
+
+async onEventSelected(event){
+  let start = formatDate(event.startTime, 'medium', this.locale);
+  let end = formatDate(event.endTime, 'medium', this.locale);
+ 
+  const alert = await this.alertCtrl.create({
+    header: event.title,
+    subHeader: event.desc,
+    message: 'From: ' + start + '<br><br>To: ' + end,
+    buttons: ['OK']
+  });
+  alert.present();
+}
+onViewTitleChanged(title){
+  this.viewTitle = title;
 
 }
-onTimeSelected(){
-  
+//Time slot that was selected
+onTimeSelected(ev){
+  let selected = new Date(ev.selectedTime);
+  this.event.startTime = selected.toISOString();
+  selected.setHours(selected.getHours() + 1);
+  this.event.endTime = (selected.toISOString());
 }
 }
