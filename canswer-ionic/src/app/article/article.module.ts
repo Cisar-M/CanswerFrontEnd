@@ -23,4 +23,7 @@ const routes: Routes = [
   ],
   declarations: [ArticlePage]
 })
-export class ArticlePageModule {}
+export class ArticlePageModule {
+  privaate article: any;
+  this.post = navParams.get('article')
+}

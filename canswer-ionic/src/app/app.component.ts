@@ -18,7 +18,7 @@ export class AppComponent {
       icon: 'home'
     },
     {
-      title: 'Forumn',
+      title: 'Forum',
       url: '/forumn',
       icon: 'chatbubbles'
     },
@@ -38,11 +38,6 @@ export class AppComponent {
       icon: 'home'
     },
     {
-      title: 'Find a Clinic',
-      url: '/find-clinic',
-      icon: 'medkit'
-    },
-    {
       title: 'Information center',
       url: '/info-center',
       icon: 'information-circle'
@@ -52,21 +47,21 @@ export class AppComponent {
       url: '/login',
       icon: 'logout'
     },
-    {
-      title: 'Login',
-      url: '/login',
-      icon: 'log-in'
-    },
-    {
-      title: 'Register',
-      url: '/register',
-      icon: 'person-add'
-    },
-    {
-      title: 'Article',
-      url: '/article',
-      icon: 'paper'
-    }
+    // {
+    //   title: 'Login',
+    //   url: '/login',
+    //   icon: 'log-in'
+    // },
+    // {
+    //   title: 'Register',
+    //   url: '/register',
+    //   icon: 'person-add'
+    // },
+    // {
+    //   title: 'Article',
+    //   url: '/article',
+    //   icon: 'paper'
+    // }
   ];
 
   constructor(
