@@ -34,14 +34,14 @@ export class AppComponent {
     },
     {
       title: 'Preventions',
-      url: '/treaatments',
-      icon: 'home'
-    },
-    {
-      title: 'Find a Clinic',
-      url: '/find-clinic',
+      url: '/treatments',
       icon: 'medkit'
     },
+    // {
+    //   title: 'Find a Clinic',
+    //   url: '/find-clinic',
+    //   icon: 'medkit'
+    // },
     {
       title: 'Information center',
       url: '/info-center',

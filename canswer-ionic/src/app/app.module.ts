@@ -11,6 +11,11 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { MatIcon } from '@angular/material' ;
 
+import {File} from '@ionic-native/file/ngx';
+import {FileTransfer} from '@ionic-native/file-transfer/ngx';
+import {DocumentViewer} from '@ionic-native/document-viewer/ngx';
+
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -22,7 +27,11 @@ import { MatIcon } from '@angular/material' ;
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    File,
+    FileTransfer,
+    DocumentViewer,
+
   ],
   bootstrap: [AppComponent]
 })

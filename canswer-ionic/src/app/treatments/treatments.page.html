@@ -1,3 +1,4 @@
+
 <ion-header>
   <ion-toolbar>
     <ion-title>treatments</ion-title>
@@ -5,6 +6,7 @@
 </ion-header>
 
 
-<ion-content>
-    <img src="smiley.gif" alt="Smiley face" width="42" height="42"> This is some text.</p>
+<ion-content padding>
+    <button ion-button full (click)="openLocalPdf();"> Open local PDF</button>
+    <button ion-button full (click)="downloadAndOpenPdf();">Download and open PDF</button>
 </ion-content>
