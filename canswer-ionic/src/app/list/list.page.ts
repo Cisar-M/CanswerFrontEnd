@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-navigator/ngx';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-list',
@@ -6,43 +8,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['list.page.scss']
 })
 export class ListPage implements OnInit {
-  private selectedItem: any;
-  private icons = [
-    'flask',
-    'wifi',
-    'beer',
-    'football',
-    'basketball',
-    'paper-plane',
-    'american-football',
-    'boat',
-    'bluetooth',
-    'build'
-  ];
-  public items: Array<{ title: string; note: string; icon: string }> = [];
-  constructor() {
-    for (let i = 1; i < 11; i++) {
-      this.items.push({
-        title: 'Item ' + i,
-        note: 'This is item #' + i,
-        icon: this.icons[Math.floor(Math.random() * this.icons.length)]
-      });
-    }
-  }
+  symptoms: Object;
+
+  //Injects Launch nav for app opening and service for api connection
+  constructor(private launchNavigator: LaunchNavigator, private api: ApiService) { }
 
   private symAmount:number = 0;
-  private hProb: boolean = true;
+  private hProb: boolean = false;
   private mProb: boolean = false;
-  private lProb: boolean = false;
+  private lProb: boolean = true;
+  //change the probibility and check if level was altered
   calculateProbability(number: number, e:any){
-    if(e.checked){
-      e = e+ number;
+    if(e.target.checked){
+      this.symAmount = this.symAmount + number;
     }else{
-      e = e - number
+      this.symAmount = this.symAmount - number;
     }
-
+    this.reevaluateProbibility()
   }
-
+// Change the level of probability according to how high the total number is\
   reevaluateProbibility(){
     if(this.symAmount> 10){
       this.lProb = false;
@@ -58,11 +42,19 @@ export class ListPage implements OnInit {
       this.hProb = false;
     }
   }
-
+  //open maps function for button (only when medium or high probibility)
   openMaps(){
-
+    this.launchNavigator.navigate('Hatfield, South Africa').then(
+      success => console.log('launched navigator'),
+      error => console.log('Error launching navigator', error)
+    );
   }
+  //Read from the api
   ngOnInit() {
+    this.api.getSymptoms().subscribe(data =>{
+      this.symptoms = data;
+      console.log(this.symptoms);
+    })
   }
   // add back when alpha.4 is out
   // navigate(item) {

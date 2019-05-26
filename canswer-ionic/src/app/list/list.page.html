@@ -13,8 +13,8 @@
 <ion-content>
   <ion-list>
     <ion-item *ngFor="let symptom of symptoms">
-      <ion-checkbox colour = "primary" (click)="calculateProbability(symptom.number, $event)">
-      <ion-label>{{item.description}}</ion-label>
+      <ion-checkbox colour = "primary" (click)="calculateProbability(symptom.ID, $event)">
+      <ion-label>{{symptom.Sym_Description}}</ion-label>
       </ion-checkbox>
     </ion-item>
   </ion-list>
@@ -53,6 +53,7 @@
       There is a high chance of you having cancer. Please seek medical help as soon as possible.
     </p>
  </div>
+ <!-- Display button to open the maps -->
  <div *ngIf= "mProb">
     <ion-button  id="findClinic" (click) = "openMaps()"><p id = "buttonContents">FIND A CLINIC<br> NEAR ME</p></ion-button>
     <p id = "clinicExplination"><span class = "glyphicon glyphicon-info-sign"></span> Press this button to open up a map with the directions to the closest clinic</p>

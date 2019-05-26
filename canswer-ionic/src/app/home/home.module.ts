@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 
-import { ArticleComponent } from './article/article.component';
 import { HomePage } from './home.page';
 
 @NgModule({
@@ -16,10 +15,6 @@ import { HomePage } from './home.page';
       {
         path: '',
         component: HomePage
-      },
-      {
-        path: ':id',
-        component: ArticleComponent
       }
     ])
   ],

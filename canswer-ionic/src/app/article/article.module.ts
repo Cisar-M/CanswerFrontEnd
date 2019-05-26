@@ -9,7 +9,7 @@ import { ArticlePage } from './article.page';
 
 const routes: Routes = [
   {
-    path: '',
+    path: ':id',
     component: ArticlePage
   }
 ];
