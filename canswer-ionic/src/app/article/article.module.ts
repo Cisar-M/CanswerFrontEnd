@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
-
+import { Article } from '../models/article'
 import { ArticlePage } from './article.page';
 
 const routes: Routes = [
@@ -23,7 +23,6 @@ const routes: Routes = [
   ],
   declarations: [ArticlePage]
 })
+
 export class ArticlePageModule {
-  privaate article: any;
-  this.post = navParams.get('article')
 }

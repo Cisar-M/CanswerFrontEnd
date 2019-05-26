@@ -1,15 +1,17 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
-import { ArticlePage } from '../article/article.page';
+// import { NavController } from 'ionic-angular';
+import { Article } from '../models/article';
+import { NavController } from '@ionic/angular';
+import { RouterModule, Route, Router } from '@angular/router';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  constructor(public navCtrl: NavController) { }
+  constructor(public router: Router) { }
 
-  openPost(article){
-    this.navCtrl.push(ArticlePage, {article: article} )
+  openPost(id){
+    this.router.navigateByUrl('../article/article/' + id);
   }
 }

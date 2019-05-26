@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar id="titleContainer">
+    <ion-title id = "aTitile">{{ article.title }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf=post.picture id = "PicContainer">
+    <img id="ArticleImage" src='' alt="Picture not found">
+  </div>
+  <div id="ArticleContent">
+    {{article.content}}
+  </div>
+  <div>
+    <h3>Comments</h3>
+    <div>
+      <input id = "Content" type = "text" placeholder="Comment">
+      <input type="button" value = "Comment" (click) = "makeComment()">
+    </div>
+    <div>
+      <ion-list>
+          <ion-item *ngFor="let comment of comments">
+            <p>{{ comment.description }}</p>
+          </ion-item>
+        </ion-list>
+    </div>
+  </div>
+</ion-content>
+<script>
+  document.getElementByIdP("ArticleImage").src = "data:image/png;base64," + "post.pic";
+</script>

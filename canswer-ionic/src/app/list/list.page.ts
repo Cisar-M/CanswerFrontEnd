@@ -30,6 +30,38 @@ export class ListPage implements OnInit {
     }
   }
 
+  private symAmount:number = 0;
+  private hProb: boolean = true;
+  private mProb: boolean = false;
+  private lProb: boolean = false;
+  calculateProbability(number: number, e:any){
+    if(e.checked){
+      e = e+ number;
+    }else{
+      e = e - number
+    }
+
+  }
+
+  reevaluateProbibility(){
+    if(this.symAmount> 10){
+      this.lProb = false;
+      this.mProb = true;
+      this.hProb = false;
+    }else if(this.symAmount > 15){
+      this.lProb = false;
+      this.mProb = false;
+      this.hProb = true;
+    }else{
+      this.lProb = true;
+      this.mProb = false;
+      this.hProb = false;
+    }
+  }
+
+  openMaps(){
+
+  }
   ngOnInit() {
   }
   // add back when alpha.4 is out

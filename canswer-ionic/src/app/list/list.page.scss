@@ -5,7 +5,7 @@
     //  margin-top: 1%;
 }
 
-#Problevel{
+.LowProblevel{
     background-color: var(--ion-color-success-tint);
     border-style: solid;
     border-radius: 10px;
@@ -22,7 +22,7 @@
     font-size: 400%;
 }
 
-#levelDescription{
+.LowlevelDescription{
     background-color: var(--ion-color-success-tint);
     border-style: solid;
     border-radius: 10px;
@@ -39,7 +39,95 @@
     font-size: 200%;
 }
 
+.MidProblevel{
+    background-color: var(--ion-color-warning);
+    border-style: solid;
+    border-radius: 10px;
+    border-color: var(--ion-color-warning-tint);
+    // border-width: 4px;
+    //color: var(--ion-color-success);
+    //border-color: var(--ion-color-primary-shade);
+    text-align: center;
+    margin: 2%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    padding-left: 5%;
+    padding-right: 5%;
+    font-size: 400%;
+}
+
+.MidlevelDescription{
+    background-color: var(--ion-color-warning);
+    border-style: solid;
+    border-radius: 10px;
+    border-color: var(--ion-color-warning-tint);
+    // border-width: 4px;
+    //border-color: var(--ion-color-medium);
+    //border-color: var(--ion-color-primary-shade);
+    text-align: center;
+    margin: 2%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    padding-left: 5%;
+    padding-right: 5%;
+    font-size: 200%;
+}
+
+.HighProblevel{
+    background-color: var(--ion-color-danger-tint);
+    border-style: solid;
+    border-radius: 10px;
+    border-color: var(--ion-color-danger);
+    // border-width: 4px;
+    //color: var(--ion-color-success);
+    //border-color: var(--ion-color-primary-shade);
+    text-align: center;
+    margin: 2%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    padding-left: 5%;
+    padding-right: 5%;
+    font-size: 400%;
+}
+
+.HighlevelDescription{
+    background-color: var(--ion-color-danger-tint);
+    border-style: solid;
+    border-radius: 10px;
+    border-color: var(--ion-color-danger);
+    // border-width: 4px;
+    //border-color: var(--ion-color-medium);
+    //border-color: var(--ion-color-primary-shade);
+    text-align: center;
+    margin: 2%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    padding-left: 5%;
+    padding-right: 5%;
+    font-size: 200%;
+}
+
 #symExplination{
     color: var(--ion-color-medium);
     text-align: center;
+}
+
+#findClinic{
+    display: block;
+    margin: auto;
+    width: 70%;
+    height: 60%;
+    font-size: 150%;
+}
+
+#clinicExplination{
+    color: var(--ion-color-medium);
+    text-align: center;
+    padding-top: 2%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+#buttonContents{
+    padding: 2%;
 }

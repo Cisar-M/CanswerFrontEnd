@@ -13,23 +13,52 @@
 <ion-content>
   <ion-list>
     <ion-item *ngFor="let symptom of symptoms">
+      <ion-checkbox colour = "primary" (click)="calculateProbability(symptom.number, $event)">
       <ion-label>{{item.description}}</ion-label>
-      <ion-checkbox colour = ></ion-checkbox>
+      </ion-checkbox>
     </ion-item>
   </ion-list>
  <p id = "symExplination"> <span class = "glyphicon glyphicon-info-sign"></span> The symptoms you are dealing with to detemine the probability of your having cancer</p>
- <div>
+ <!-- set the style of the div according to probability level -->
+ <div [ngClass] = "{
+   'LowProblevel': lProb,
+   'MidProblevel': mProb,
+   'HighProblevel' : hProb
+ }"> 
   <strong> 
-    <p id="Problevel">
-    </p>
+      <p *ngIf= "lProb">
+          Low Probability
+        </p>
+        <p *ngIf= "mProb">
+         Medium probability
+        </p>
+        <p *ngIf= "hProb">
+          High Probability
+        </p>
   </strong>
  </div>
-
- <div id=>
-    <p id = "LevelDescription">
-      
+<!-- set the style of the div according to probability level -->
+ <div [ngClass] = "{
+  'LowlevelDescription': lProb,
+  'MidlevelDescription': mProb,
+  'HighlevelDescription' : hProb
+}"> 
+    <p *ngIf= "lProb">
+      There is a low probability of you having cancer you don't need to worry about seeing a medical professional, about cancer
+    </p>
+    <p *ngIf= "mProb">
+      There is a medium chance of you having cancer based on your choices, it would be wise to seek medical attention
+    </p>
+    <p *ngIf= "hProb">
+      There is a high chance of you having cancer. Please seek medical help as soon as possible.
     </p>
  </div>
+ <div *ngIf= "mProb">
+    <ion-button  id="findClinic" (click) = "openMaps()"><p id = "buttonContents">FIND A CLINIC<br> NEAR ME</p></ion-button>
+    <p id = "clinicExplination"><span class = "glyphicon glyphicon-info-sign"></span> Press this button to open up a map with the directions to the closest clinic</p>
+ </div>
+ <div *ngIf= "hProb">
+    <ion-button  id="findClinic" (click) = "openMaps()"><p id = "buttonContents">FIND A CLINIC NEAR ME</p></ion-button>
+    <p id = "clinicExplination"><span class = "glyphicon glyphicon-info-sign"></span> Press this button to open up a map with the directions to the closest clinic</p>
+ </div>
 </ion-content>
-<script>
-</script>

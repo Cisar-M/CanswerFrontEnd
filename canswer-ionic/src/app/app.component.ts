@@ -30,12 +30,12 @@ export class AppComponent {
     {
       title: 'Symptoms',
       url: '/list',
-      icon: 'list'
+      icon: 'medical'
     },
     {
       title: 'Preventions',
-      url: '/treaatments',
-      icon: 'home'
+      url: '/treatments',
+      icon: 'medkit'
     },
     {
       title: 'Information center',
@@ -45,7 +45,7 @@ export class AppComponent {
     {
       title: 'Logout',
       url: '/login',
-      icon: 'logout'
+      icon: 'log-out'
     },
     // {
     //   title: 'Login',
