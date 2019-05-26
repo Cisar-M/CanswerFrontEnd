@@ -16,4 +16,13 @@ export class ApiService {
     let params = new HttpParams().set('id', id);
     return this.http.get('http://localhost:51587/api/api/getSymptom',{params: params});
   }
+
+  getPosts(){
+    return this.http.get('http://localhost:51587/api/Users/GetPosts');
+  }
+
+  getPost(id){
+    let params = new HttpParams().set('id', id);
+    return this.http.get('http://localhost:51587/api/Users/GetPost',{params: params});
+  }
 }

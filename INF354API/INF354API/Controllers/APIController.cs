@@ -92,9 +92,8 @@ namespace INF354API.Controllers
                 } 
                 catch
                 {
-                    return;
+                    throw;
                 }
-               
             }
 
             // GET: api/Users
@@ -125,6 +124,22 @@ namespace INF354API.Controllers
                 }
                 
             }
+
+            [ResponseType(typeof(Post))]
+            public IHttpActionResult GetPost(int id)
+            {
+                db.Configuration.ProxyCreationEnabled = false;
+                Post pst = db.Posts.Find(id);
+
+                if (pst == null)
+                {
+                    return NotFound();
+                }
+
+
+                return Ok(pst);
+            }
+
             // GET: api/Users
             public List<Question> getQuestions()
             {

@@ -10,18 +10,17 @@ import { ApiService } from '../api.service';
   styleUrls: ['./article.page.scss'],
 })
 export class ArticlePage implements OnInit {
-  constructor(public navParams: NavParams, private route: ActivatedRoute, api: ApiService) {
+  constructor(public navParams: NavParams, private route: ActivatedRoute, private api: ApiService) {
   }
-  public article: any;
   // this.article = navParams.get('article')
   goBack(){
     console.log("back clicked");
   }
   id: any;
-
+  article: Object
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
-    
+    this.article = this.api.getSymmptom(this.id);
   }
 
 }
