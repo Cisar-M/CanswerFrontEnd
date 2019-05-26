@@ -44,7 +44,7 @@ export class ListPage implements OnInit {
   }
   //open maps function for button (only when medium or high probibility)
   openMaps(){
-    this.launchNavigator.navigate('Hatfield, South Africa').then(
+    this.launchNavigator.navigate('Clinic').then(
       success => console.log('launched navigator'),
       error => console.log('Error launching navigator', error)
     );
