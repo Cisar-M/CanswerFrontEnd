@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Add an Answer</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="myDIV" class="mainheader">
+    <span class="input-group-btn">
+        <h3>Question</h3>  
+        <ion-button class="btn btn-primary pull-right" type="submit" routerLink="/forumn">
+        Back
+        </ion-button>
+      </span>
+  </div>
+  <div class="chat col-xs-12">
+  <div class="card">
+    <div class="card-body">
+        <div class="panel-body" *ngIf="Answers">
+            <ul class="chat">
+                <li class="left clearfix" *ngFor="let hero of Answers" >
+                  <div ><span class="chat-img pull-left" >
+                    <img src="http://placehold.it/50/55C1E7/fff&text=U" alt="User Avatar" class="img-circle" />
+                </span>
+                    <div class="chat-body clearfix">
+                        <div class="header">
+                            <strong class="primary-font">{{hero.UserID}}</strong> <small class="pull-right text-muted">
+                                <h1 class="glyphicon glyphicon-time" style="size: 70px">{{hero.QuestionID}}</h1></small>
+                                <h1 style="size: 70px">
+                                  {{hero.Answer}}
+                                </h1>
+                        </div>
+
+                    </div>
+                 </div>
+                </li>
+            </ul>
+        </div>
+        <form [formGroup]="profileForm" (ngSubmit)="send()">
+            <div class="input-group">
+                <input name="message" type="text" class="form-control" placeholder="Your Answer..." formControlName="name">
+                <span class="input-group-btn">
+                    <ion-button class="btn btn-primary" type="submit">Send</ion-button>
+                  </span>
+              </div>
+        </form>     
+      <div>    
+      </div>
+    </div>
+  </div>
