@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Ask a Question</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="myDIV" class="mainheader">
+    <a class="heading">Ask Question</a>
+    <br>
+  <span class="input-group-btn"> 
+    <ion-button class="btn btn-primary pull-right" type="submit" routerLink="/forumn" >
+    back
+    </ion-button>
+  </span>
+  </div>
+  <form [formGroup]="profileForm" (ngSubmit)="Add()">
+        <div class="input-group">
+            <input name="message" type="text" class="form-control" placeholder="Your Question..." formControlName="Question1">
+            <span class="input-group-btn">
+                <ion-button class="btn btn-primary" type="submit">Send</ion-button>
+              </span>
+          </div>
+    </form>
+</ion-content>
