@@ -1,7 +1,6 @@
 // Deprecated
 import { Component, OnInit } from '@angular/core';
-import { NavParams } from '@ionic/angular';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../api.service';
 
 @Component({
@@ -10,17 +9,18 @@ import { ApiService } from '../api.service';
   styleUrls: ['./article.page.scss'],
 })
 export class ArticlePage implements OnInit {
-  constructor(public navParams: NavParams, private route: ActivatedRoute, private api: ApiService) {
+  constructor(private route: ActivatedRoute, private api: ApiService, private router: Router) {
   }
   // this.article = navParams.get('article')
   goBack(){
-    console.log("back clicked");
+    this.router.navigate(['/']);
   }
   id: any;
   article: Object
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
-    this.article = this.api.getSymmptom(this.id);
+    this.id = parseInt(this.id);
+    this.article = this.api.getPost(this.id);
   }
 
 }

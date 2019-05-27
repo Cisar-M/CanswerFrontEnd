@@ -19,16 +19,17 @@ export class ListPage implements OnInit {
   private lProb: boolean = true;
   //change the probibility and check if level was altered
   calculateProbability(number: number, e:any){
-    if(e.target.checked){
+    if(!e.target.checked){
       this.symAmount = this.symAmount + number;
     }else{
       this.symAmount = this.symAmount - number;
     }
-    this.reevaluateProbibility()
+    console.log(" Symptom amount "+this.symAmount);
+    this.reevaluateProbibility();
   }
 // Change the level of probability according to how high the total number is\
   reevaluateProbibility(){
-    if(this.symAmount> 10){
+    if(this.symAmount> 10 && this.symAmount < 15){
       this.lProb = false;
       this.mProb = true;
       this.hProb = false;

@@ -46,6 +46,7 @@
     <Property Name="WHO_add" Type="Int32" />
     <NavigationProperty Name="User" Relationship="Self.FK__Post__WHO_add__182C9B23" FromRole="Post" ToRole="Users" />
     <NavigationProperty Name="Post_Comment" Relationship="Self.FK__Post_Comm__Post___1BFD2C07" FromRole="Post" ToRole="Post_Comment" />
+    <Property Name="Title" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="Post_Comment">
     <Key>

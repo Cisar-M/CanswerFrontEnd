@@ -11,8 +11,7 @@ namespace INF354API.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.Web;
-
+    
     public partial class Post
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -27,7 +26,8 @@ namespace INF354API.Models
         public Nullable<System.DateTime> Post_DateAdded { get; set; }
         public Nullable<bool> archive { get; set; }
         public Nullable<int> WHO_add { get; set; }
-        public HttpPostedFileBase inputfield { get; set; }
+        public string Title { get; set; }
+    
         public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Post_Comment> Post_Comment { get; set; }

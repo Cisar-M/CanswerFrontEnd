@@ -46,10 +46,12 @@
   
   <div id = "updateslist">
     <ion-list>
-      <button ion-item *ngFor="let post of posts"   [hidden] = "post.archive" (click)="openPost(post.id)">
-        <h2 class= "articleHead" [innerHTML]="post.Title"></h2>
-        <p [innerHTML]="post.Post_DateAdded"></p>
-      </button>
+        <ion-item *ngFor="let post of posts" >
+          <button   class = "artButton" [routerLink]="['/article', post.ID]">
+            <p [innerHTML]="post.Title" class= "articleHead" >{{post.Title}}</p>
+            <!-- <p [innerHTML]="post.Post_DateAdded"></p> -->
+          </button>
+      </ion-item>
     </ion-list>
   </div>
 

@@ -13,10 +13,11 @@
 <ion-content>
   <ion-list>
     <ion-item *ngFor="let symptom of symptoms">
-      <ion-checkbox colour = "primary" (click)="calculateProbability(symptom.ID, $event)">
-      <ion-label>{{symptom.Sym_Description}}</ion-label>
+      <ion-checkbox colour = "primary"[innerHTML]="symptom.Sym_Description" (click)="calculateProbability(symptom.ID, $event)">
+      <ion-label >Not found</ion-label>
       </ion-checkbox>
     </ion-item>
+  
   </ion-list>
  <p id = "symExplination"> <span class = "glyphicon glyphicon-info-sign"></span> The symptoms you are dealing with to detemine the probability of your having cancer</p>
  <!-- set the style of the div according to probability level -->

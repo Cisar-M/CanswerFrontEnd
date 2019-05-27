@@ -8,8 +8,6 @@
     <Property Name="Answer" Type="int" />
     <Property Name="_User" Type="int" />
     <Property Name="FA_Answer" Type="varchar" MaxLength="200" />
-    <Property Name="downvote" Type="int" />
-    <Property Name="upvote" Type="int" />
   </EntityType>
   <EntityType Name="Colloborators">
     <Key>
@@ -35,8 +33,9 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="8000" />
     <Property Name="Post_Description" Type="varchar" MaxLength="8000" />
-    <Property Name="Picture" Type="image" />
+    <Property Name="Picture" Type="varbinary(max)" />
     <Property Name="Post_DateAdded" Type="datetime" />
     <Property Name="archive" Type="bit" />
     <Property Name="WHO_add" Type="int" />
@@ -80,16 +79,6 @@
     <Property Name="Sym_DateAdded" Type="datetime" />
     <Property Name="WHO_added" Type="int" />
   </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="principal_id" Type="int" Nullable="false" />
-    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="version" Type="int" />
-    <Property Name="definition" Type="varbinary(max)" />
-  </EntityType>
   <EntityType Name="Treatment">
     <Key>
       <PropertyRef Name="ID" />
@@ -124,7 +113,7 @@
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Usertype" Type="varchar" MaxLength="100" />
   </EntityType>
-  <Association Name="FK__Answers___User__2B3F6F97">
+  <Association Name="FK__Answers___User__182C9B23">
     <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
     <End Role="Answers" Type="Self.Answers" Multiplicity="*" />
     <ReferentialConstraint>
@@ -136,7 +125,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Answers__Answer__2A4B4B5E">
+  <Association Name="FK__Answers__Answer__173876EA">
     <End Role="Question" Type="Self.Question" Multiplicity="0..1" />
     <End Role="Answers" Type="Self.Answers" Multiplicity="*" />
     <ReferentialConstraint>
@@ -148,7 +137,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Collobora__Users__15502E78">
+  <Association Name="FK__Collobora__Users__023D5A04">
     <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
     <End Role="Colloborators" Type="Self.Colloborators" Multiplicity="*" />
     <ReferentialConstraint>
@@ -160,7 +149,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Post__WHO_add__182C9B23">
+  <Association Name="FK__Post__WHO_add__0519C6AF">
     <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
     <End Role="Post" Type="Self.Post" Multiplicity="*" />
     <ReferentialConstraint>
@@ -172,7 +161,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Post_Comm__Post___1BFD2C07">
+  <Association Name="FK__Post_Comm__Post___08EA5793">
     <End Role="Post" Type="Self.Post" Multiplicity="0..1" />
     <End Role="Post_Comment" Type="Self.Post_Comment" Multiplicity="*" />
     <ReferentialConstraint>
@@ -184,7 +173,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Post_Comm__UserI__1B0907CE">
+  <Association Name="FK__Post_Comm__UserI__07F6335A">
     <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
     <End Role="Post_Comment" Type="Self.Post_Comment" Multiplicity="*" />
     <ReferentialConstraint>
@@ -196,7 +185,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Question__Colab___276EDEB3">
+  <Association Name="FK__Question__Colab___145C0A3F">
     <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
     <End Role="Question" Type="Self.Question" Multiplicity="*" />
     <ReferentialConstraint>
@@ -208,7 +197,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Reminder__Client__300424B4">
+  <Association Name="FK__Reminder__Client__1CF15040">
     <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
     <End Role="Reminder" Type="Self.Reminder" Multiplicity="*" />
     <ReferentialConstraint>
@@ -220,7 +209,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Reminder__FreqID__30F848ED">
+  <Association Name="FK__Reminder__FreqID__1DE57479">
     <End Role="Frequency" Type="Self.Frequency" Multiplicity="0..1" />
     <End Role="Reminder" Type="Self.Reminder" Multiplicity="*" />
     <ReferentialConstraint>
@@ -232,7 +221,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Symptoms__WHO_ad__1ED998B2">
+  <Association Name="FK__Symptoms__WHO_ad__0BC6C43E">
     <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
     <End Role="Symptoms" Type="Self.Symptoms" Multiplicity="*" />
     <ReferentialConstraint>
@@ -244,7 +233,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Treatment__treat__24927208">
+  <Association Name="FK__Treatment__treat__117F9D94">
     <End Role="Treatment_Type" Type="Self.Treatment_Type" Multiplicity="0..1" />
     <End Role="Treatment" Type="Self.Treatment" Multiplicity="*" />
     <ReferentialConstraint>
@@ -256,7 +245,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Treatment__WHO_a__239E4DCF">
+  <Association Name="FK__Treatment__WHO_a__108B795B">
     <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
     <End Role="Treatment" Type="Self.Treatment" Multiplicity="*" />
     <ReferentialConstraint>
@@ -268,7 +257,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Users__usertypeI__1273C1CD">
+  <Association Name="FK__Users__usertypeI__7F60ED59">
     <End Role="UserType" Type="Self.UserType" Multiplicity="0..1" />
     <End Role="Users" Type="Self.Users" Multiplicity="*" />
     <ReferentialConstraint>
@@ -289,60 +278,59 @@
     <EntitySet Name="Question" EntityType="Self.Question" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Reminder" EntityType="Self.Reminder" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Symptoms" EntityType="Self.Symptoms" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Treatment" EntityType="Self.Treatment" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Treatment_Type" EntityType="Self.Treatment_Type" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UserType" EntityType="Self.UserType" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__Answers___User__2B3F6F97" Association="Self.FK__Answers___User__2B3F6F97">
+    <AssociationSet Name="FK__Answers___User__182C9B23" Association="Self.FK__Answers___User__182C9B23">
       <End Role="Users" EntitySet="Users" />
       <End Role="Answers" EntitySet="Answers" />
     </AssociationSet>
-    <AssociationSet Name="FK__Answers__Answer__2A4B4B5E" Association="Self.FK__Answers__Answer__2A4B4B5E">
+    <AssociationSet Name="FK__Answers__Answer__173876EA" Association="Self.FK__Answers__Answer__173876EA">
       <End Role="Question" EntitySet="Question" />
       <End Role="Answers" EntitySet="Answers" />
     </AssociationSet>
-    <AssociationSet Name="FK__Collobora__Users__15502E78" Association="Self.FK__Collobora__Users__15502E78">
+    <AssociationSet Name="FK__Collobora__Users__023D5A04" Association="Self.FK__Collobora__Users__023D5A04">
       <End Role="Users" EntitySet="Users" />
       <End Role="Colloborators" EntitySet="Colloborators" />
     </AssociationSet>
-    <AssociationSet Name="FK__Post__WHO_add__182C9B23" Association="Self.FK__Post__WHO_add__182C9B23">
+    <AssociationSet Name="FK__Post__WHO_add__0519C6AF" Association="Self.FK__Post__WHO_add__0519C6AF">
       <End Role="Users" EntitySet="Users" />
       <End Role="Post" EntitySet="Post" />
     </AssociationSet>
-    <AssociationSet Name="FK__Post_Comm__Post___1BFD2C07" Association="Self.FK__Post_Comm__Post___1BFD2C07">
+    <AssociationSet Name="FK__Post_Comm__Post___08EA5793" Association="Self.FK__Post_Comm__Post___08EA5793">
       <End Role="Post" EntitySet="Post" />
       <End Role="Post_Comment" EntitySet="Post_Comment" />
     </AssociationSet>
-    <AssociationSet Name="FK__Post_Comm__UserI__1B0907CE" Association="Self.FK__Post_Comm__UserI__1B0907CE">
+    <AssociationSet Name="FK__Post_Comm__UserI__07F6335A" Association="Self.FK__Post_Comm__UserI__07F6335A">
       <End Role="Users" EntitySet="Users" />
       <End Role="Post_Comment" EntitySet="Post_Comment" />
     </AssociationSet>
-    <AssociationSet Name="FK__Question__Colab___276EDEB3" Association="Self.FK__Question__Colab___276EDEB3">
+    <AssociationSet Name="FK__Question__Colab___145C0A3F" Association="Self.FK__Question__Colab___145C0A3F">
       <End Role="Users" EntitySet="Users" />
       <End Role="Question" EntitySet="Question" />
     </AssociationSet>
-    <AssociationSet Name="FK__Reminder__Client__300424B4" Association="Self.FK__Reminder__Client__300424B4">
+    <AssociationSet Name="FK__Reminder__Client__1CF15040" Association="Self.FK__Reminder__Client__1CF15040">
       <End Role="Users" EntitySet="Users" />
       <End Role="Reminder" EntitySet="Reminder" />
     </AssociationSet>
-    <AssociationSet Name="FK__Reminder__FreqID__30F848ED" Association="Self.FK__Reminder__FreqID__30F848ED">
+    <AssociationSet Name="FK__Reminder__FreqID__1DE57479" Association="Self.FK__Reminder__FreqID__1DE57479">
       <End Role="Frequency" EntitySet="Frequency" />
       <End Role="Reminder" EntitySet="Reminder" />
     </AssociationSet>
-    <AssociationSet Name="FK__Symptoms__WHO_ad__1ED998B2" Association="Self.FK__Symptoms__WHO_ad__1ED998B2">
+    <AssociationSet Name="FK__Symptoms__WHO_ad__0BC6C43E" Association="Self.FK__Symptoms__WHO_ad__0BC6C43E">
       <End Role="Users" EntitySet="Users" />
       <End Role="Symptoms" EntitySet="Symptoms" />
     </AssociationSet>
-    <AssociationSet Name="FK__Treatment__treat__24927208" Association="Self.FK__Treatment__treat__24927208">
+    <AssociationSet Name="FK__Treatment__treat__117F9D94" Association="Self.FK__Treatment__treat__117F9D94">
       <End Role="Treatment_Type" EntitySet="Treatment_Type" />
       <End Role="Treatment" EntitySet="Treatment" />
     </AssociationSet>
-    <AssociationSet Name="FK__Treatment__WHO_a__239E4DCF" Association="Self.FK__Treatment__WHO_a__239E4DCF">
+    <AssociationSet Name="FK__Treatment__WHO_a__108B795B" Association="Self.FK__Treatment__WHO_a__108B795B">
       <End Role="Users" EntitySet="Users" />
       <End Role="Treatment" EntitySet="Treatment" />
     </AssociationSet>
-    <AssociationSet Name="FK__Users__usertypeI__1273C1CD" Association="Self.FK__Users__usertypeI__1273C1CD">
+    <AssociationSet Name="FK__Users__usertypeI__7F60ED59" Association="Self.FK__Users__usertypeI__7F60ED59">
       <End Role="UserType" EntitySet="UserType" />
       <End Role="Users" EntitySet="Users" />
     </AssociationSet>

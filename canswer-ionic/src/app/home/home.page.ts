@@ -8,11 +8,19 @@ import { ApiService } from '../api.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  constructor(public router: Router, private http: ApiService) { }
+  constructor(public router: Router, private api: ApiService) { }
 
-  post: Object;
+  posts: Object;
   
-  openPost(id){
-    this.router.navigateByUrl('../article/article/' + id);
+  openPost(id: number){
+    console.log(id);
+    this.router.navigateByUrl('../article/' + id);
+  }
+
+  ngOnInit() {
+    this.api.getPosts().subscribe(data =>{
+      this.posts = data;
+      console.log(this.posts);
+    })
   }
 }

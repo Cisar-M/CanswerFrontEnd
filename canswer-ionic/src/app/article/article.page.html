@@ -1,5 +1,6 @@
 <ion-header>
     <ion-toolbar id="titleContainer">
+        <p (click) = "goBack()"> <span class="glyphicon glyphicon-chevron-left"></span></p>
       <ion-title id = "aTitile">{{ article.Title }}</ion-title>
     </ion-toolbar>
   </ion-header>
@@ -12,10 +13,10 @@
      -->
      {{article.Post_DateAdded}}
      <!-- Get the article input and display -->
-    <div id="ArticleContent">
+    <div id="ArticleContent" [innerHTML] = "article.Post_Description">
       {{article.Post_Description}}
     </div>
-    <div>
+    <!-- <div> -->
       <!-- The area OF COMMENTS -->
       <!-- <h3>Comments</h3>
       <div>
@@ -33,8 +34,8 @@
       </div>
     </div> -->
   </ion-content>
-  <script>
-    // get the picture and set the source
-    // document.getElementById("ArticleImage").src = "data:image/png;base64," + "post.pic";
-    // This was an attempt to alter the way we did this initially. Not enough time to change database
-  </script>
+  <!-- <script> -->
+    <!-- // get the picture and set the source -->
+    <!-- // document.getElementById("ArticleImage").src = "data:image/png;base64," + "post.pic"; -->
+    <!-- // This was an attempt to alter the way we did this initially. Not enough time to change database -->
+  <!-- </script> -->

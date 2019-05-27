@@ -90,9 +90,9 @@ namespace INF354API.Controllers
                     List<Symptom> symptomsList = db.Symptoms.ToList();
                     return symptomsList;
                 } 
-                catch
+                catch(Exception e)
                 {
-                    throw;
+                    throw e;
                 }
             }
 
