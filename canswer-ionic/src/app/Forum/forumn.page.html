@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-menu-button></ion-menu-button>
+    <ion-title>Forum</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="myDIV" class="header">
+  <br>
+    <span class="input-group-btn">  
+        <ion-button class="btn btn-primary" type="submit"  routerLink="/addquestion" >Add a Question</ion-button>
+      </span>
+  </div>
+  <div *ngIf="Questions">
+        
+        <div class="container" *ngFor="let hero of Questions"  [routerLink]="['/add-answer', hero.ID]">
+            
+            <button [routerLink]="['/add-answer', hero.ID]"><span>Reply</span></button>
+            <p>{{hero.Question1}}</p>
+            <span class="time-right"></span>
+          </div>
+          <br>
+  </div>
+  
+
+  <div class="chatBubble" *ngFor="let hero of Questions">
+    <div class="chat-bubble left">
+      <div class="message">{{hero.Question1}}</div>
+      <div class="message-detail">
+          <span style="font-weight:bold;">{{hero.ID}} </span>,
+          <span>Time</span>
+      </div>
+    </div>
+  </div>
+</ion-content>

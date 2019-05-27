@@ -1,17 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { CalnedarPage } from './calnedar.page';
-import {NgCalendarModule} from 'ionic2-calendar';
+import { AddAnswerPage } from './add-answer.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: CalnedarPage
+    component: AddAnswerPage
   }
 ];
 
@@ -21,9 +20,9 @@ const routes: Routes = [
     FormsModule,
     IonicModule,
     RouterModule.forChild(routes),
-
-    NgCalendarModule
+    FormsModule,
+    ReactiveFormsModule
   ],
-  declarations: [CalnedarPage]
+  declarations: [AddAnswerPage]
 })
-export class CalnedarPageModule {}
+export class AddAnswerPageModule {}
